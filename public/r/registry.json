@@ -8,15 +8,15 @@
       "type": "registry:component",
       "title": "Loading Screen",
       "description": "A loading screen component",
+      "dependencies": [
+        "react-use"
+      ],
       "files": [
         {
           "path": "botio/registry/new-york/shared/loading-screen.tsx",
           "type": "registry:component",
           "target": "botio/shared/loading-screen.tsx"
         }
-      ],
-      "dependencies": [
-        "react-use"
       ]
     },
     {
@@ -25,16 +25,16 @@
       "title": "Data Table Column Header",
       "description": "A data table column header component",
       "registryDependencies": ["button", "dropdown-menu"],
+      "dependencies": [
+        "react-use",
+        "tanstack/react-table",
+        "lucide-react"
+      ],
       "files": [
         {
           "path": "botio/registry/new-york/inertia/data-table-column-header.tsx",
           "type": "registry:component"
         }
-      ],
-      "dependencies": [
-        "react-use",
-        "tanstack/react-table",
-        "lucide-react"
       ]
     },
     {
