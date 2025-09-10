@@ -9,7 +9,7 @@ Register the components in your `components.json` file.
 ```json
 {
   "registries": {
-    "@botio-ui": "https://github.com/alexbotio",
+    "@botio": "https://raw.githubusercontent.com/alexbotio/botio-react-ui/main/public/r/{name}.json"
   }
 }
 ```
@@ -17,5 +17,5 @@ Register the components in your `components.json` file.
 ## Usage
 
 ```bash
-npx shadcn@latest add @botio-ui/shared/loading-screen
+npx shadcn@latest add @botio/{name}
 ```

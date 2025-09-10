@@ -24,6 +24,7 @@
       "type": "registry:component",
       "title": "Data Table Column Header",
       "description": "A data table column header component",
+      "registryDependencies": ["button", "dropdown-menu"],
       "files": [
         {
           "path": "botio/registry/new-york/inertia/data-table-column-header.tsx",
@@ -33,9 +34,7 @@
       "dependencies": [
         "react-use",
         "tanstack/react-table",
-        "lucide-react",
-        "button",
-        "dropdown-menu"
+        "lucide-react"
       ]
     },
     {

@@ -7,7 +7,9 @@
   "dependencies": [
     "react-use",
     "tanstack/react-table",
-    "lucide-react",
+    "lucide-react"
+  ],
+  "registryDependencies": [
     "button",
     "dropdown-menu"
   ],
