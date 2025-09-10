@@ -15,7 +15,7 @@
         {
           "path": "botio/registry/new-york/shared/loading-screen.tsx",
           "type": "registry:component",
-          "target": "botio/shared/loading-screen.tsx"
+          "target": "components/botio/shared/loading-screen.tsx"
         }
       ]
     },
@@ -33,7 +33,8 @@
       "files": [
         {
           "path": "botio/registry/new-york/inertia/data-table-column-header.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/botio/inertia/data-table-column-header.tsx"
         }
       ]
     },
@@ -46,7 +47,8 @@
       "files": [
         {
           "path": "botio/registry/new-york/hello-world/hello-world.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/botio/test/hello-world.tsx"
         }
       ]
     }
