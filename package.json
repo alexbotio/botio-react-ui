@@ -11,7 +11,8 @@
     "test": "node ace test",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "registry:build": "shadcn build"
   },
   "imports": {
     "#controllers/*": "./app/controllers/*.js",
@@ -87,6 +88,7 @@
     "react-dom": "^19.1.1",
     "react-use": "^17.6.0",
     "reflect-metadata": "^0.2.2",
+    "shadcn": "^3.2.1",
     "sonner": "^2.0.7",
     "tailwind-merge": "^3.3.1",
     "tailwindcss": "^4.1.13",
