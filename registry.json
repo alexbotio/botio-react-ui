@@ -1,0 +1,54 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "botio",
+  "homepage": "https://github.com/alexbotio",
+  "items": [
+    {
+      "name": "shared/loading-screen",
+      "type": "registry:component",
+      "title": "Loading Screen",
+      "description": "A loading screen component",
+      "files": [
+        {
+          "path": "botio/registry/new-york/blocks/shared/loading-screen.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "react-use"
+      ]
+    },
+    {
+      "name": "inertia/data-table-column-header",
+      "type": "registry:component",
+      "title": "Data Table Column Header",
+      "description": "A data table column header component",
+      "files": [
+        {
+          "path": "botio/registry/new-york/blocks/inertia/data-table-column-header.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "react-use",
+        "tanstack/react-table",
+        "lucide-react",
+        "button",
+        "dropdown-menu"
+      ]
+    },
+    {
+      "name": "hello-world",
+      "type": "registry:component",
+      "title": "Hello World",
+      "description": "A simple hello world component",
+      "registryDependencies": ["button"],
+      "files": [
+        {
+          "path": "botio/registry/new-york/blocks/hello-world/hello-world.tsx",
+          "type": "registry:component"
+        }
+      ]
+    }
+  ]
+}
