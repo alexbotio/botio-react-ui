@@ -1,6 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
-  "name": "loading-screen",
+  "name": "shared-loading-screen",
   "type": "registry:component",
   "title": "Loading Screen",
   "description": "A simple loading screen component",

@@ -4,7 +4,7 @@
   "homepage": "https://github.com/alexbotio/botio-react-ui",
   "items": [
     {
-      "name": "loading-screen",
+      "name": "shared-loading-screen",
       "type": "registry:component",
       "title": "Loading Screen",
       "description": "A simple loading screen component",
@@ -26,7 +26,7 @@
       "registryDependencies": ["button", "dropdown-menu"],
       "dependencies": [
         "react-use",
-        "tanstack/react-table"
+        "@tanstack/react-table"
       ],
       "files": [
         {
@@ -44,8 +44,7 @@
       "files": [
         {
           "path": "botio/registry/new-york/hello-world/hello-world.tsx",
-          "type": "registry:component",
-          "target": "@/components/botio/test/hello-world.tsx"
+          "type": "registry:component"
         }
       ]
     }

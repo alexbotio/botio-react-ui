@@ -6,7 +6,7 @@
   "description": "A simple data table column header component",
   "dependencies": [
     "react-use",
-    "tanstack/react-table"
+    "@tanstack/react-table"
   ],
   "registryDependencies": [
     "button",
