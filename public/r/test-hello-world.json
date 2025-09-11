@@ -1,8 +1,8 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
-  "name": "hello-world",
+  "name": "test-hello-world",
   "type": "registry:component",
-  "title": "Hello World",
+  "title": "Test Hello World",
   "description": "A simple hello world component",
   "registryDependencies": [
     "button"
@@ -11,8 +11,7 @@
     {
       "path": "botio/registry/new-york/hello-world/hello-world.tsx",
       "content": "export function HelloWorld() {\n  return <h1 className=\"text-2xl font-bold\">Hello World</h1>\n}\n",
-      "type": "registry:component",
-      "target": "components/botio/test/hello-world.tsx"
+      "type": "registry:component"
     }
   ]
 }

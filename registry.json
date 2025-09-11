@@ -1,54 +1,51 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
   "name": "botio",
-  "homepage": "https://github.com/alexbotio",
+  "homepage": "https://github.com/alexbotio/botio-react-ui",
   "items": [
     {
       "name": "loading-screen",
       "type": "registry:component",
       "title": "Loading Screen",
-      "description": "A loading screen component",
+      "description": "A simple loading screen component",
       "dependencies": [
         "react-use"
       ],
       "files": [
         {
           "path": "botio/registry/new-york/shared/loading-screen.tsx",
-          "type": "registry:component",
-          "target": "components/botio/shared/loading-screen.tsx"
+          "type": "registry:component"
         }
       ]
     },
     {
-      "name": "data-table-column-header",
+      "name": "inertia-data-table-column-header",
       "type": "registry:component",
-      "title": "Data Table Column Header",
-      "description": "A data table column header component",
+      "title": "Inertia Data Table Column Header",
+      "description": "A simple data table column header component",
       "registryDependencies": ["button", "dropdown-menu"],
       "dependencies": [
         "react-use",
-        "tanstack/react-table",
-        "lucide-react"
+        "tanstack/react-table"
       ],
       "files": [
         {
           "path": "botio/registry/new-york/inertia/data-table-column-header.tsx",
-          "type": "registry:component",
-          "target": "components/botio/inertia/data-table-column-header.tsx"
+          "type": "registry:component"
         }
       ]
     },
     {
-      "name": "hello-world",
+      "name": "test-hello-world",
       "type": "registry:component",
-      "title": "Hello World",
+      "title": "Test Hello World",
       "description": "A simple hello world component",
       "registryDependencies": ["button"],
       "files": [
         {
           "path": "botio/registry/new-york/hello-world/hello-world.tsx",
           "type": "registry:component",
-          "target": "components/botio/test/hello-world.tsx"
+          "target": "@/components/botio/test/hello-world.tsx"
         }
       ]
     }
