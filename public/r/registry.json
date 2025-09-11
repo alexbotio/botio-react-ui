@@ -44,7 +44,8 @@
       "files": [
         {
           "path": "botio/registry/new-york/hello-world/hello-world.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@/components/botio/test/hello-world.tsx"
         }
       ]
     }
