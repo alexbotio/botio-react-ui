@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "inertia-data-form-context",
+  "type": "registry:component",
+  "title": "Inertia Data Form Context",
+  "description": "A simple data form context component",
+  "dependencies": [
+    "@inertiajs/react"
+  ],
+  "files": [
+    {
+      "path": "botio/registry/new-york/inertia/data-form-context.tsx",
+      "content": "import { createContext, useContext } from \"react\"\nimport { FormDataType } from \"@inertiajs/core\"\nimport { InertiaFormProps } from \"@inertiajs/react\"\n\nenum DataFormAction {\n  Create = \"create\",\n  Update = \"update\",\n  Read = \"read\",\n}\n\ntype DataFormContainerAction = DataFormAction\n\ntype DataFormContainerContextType = {\n  action: DataFormContainerAction\n}\n\ntype DataFormContextType = {\n  form: InertiaFormProps<FormDataType<object>>\n}\n\ntype DataFormFieldContextType = {\n  name: string\n}\n\ninterface DataFormContainerProviderProps {\n  children: React.ReactNode\n  action: DataFormContainerAction\n}\n\ninterface DataFormProviderProps {\n  children: React.ReactNode\n  form: InertiaFormProps<FormDataType<object>>\n}\n\ninterface DataFormFieldProviderProps {\n  children: React.ReactNode\n  name: string\n}\n\nconst DataFormContainerContext = createContext<DataFormContainerContextType>({ action: DataFormAction.Read })\nconst DataFormContext = createContext<DataFormContextType | null>(null)\nconst DataFormFieldContext = createContext<DataFormFieldContextType>({ name: \"\" })\n\nfunction useDataFormContainerContext(): DataFormContainerContextType {\n  const context = useContext(DataFormContainerContext)\n  if (!context) {\n    throw new Error(\"useDataFormContext must be used within a DataFormContainerProvider\")\n  }\n  return context\n}\n\nfunction useDataFormContext(): DataFormContextType {\n  const context = useContext(DataFormContext)\n  if (!context) {\n    throw new Error(\"useDataFormContext must be used within a DataFormProvider\")\n  }\n  return context\n}\n\nfunction useDataFormFieldContext(): DataFormFieldContextType {\n  const context = useContext(DataFormFieldContext)\n  if (!context) {\n    throw new Error(\"useDataFormFieldContext must be used within a DataFormFieldProvider\")\n  }\n  return context\n}\n\nfunction DataFormContainerProvider({ children, action = DataFormAction.Read }: DataFormContainerProviderProps) {\n  return <DataFormContainerContext.Provider value={{ action }}>{children}</DataFormContainerContext.Provider>\n}\n\nfunction DataFormProvider({ children, form }: DataFormProviderProps) {\n  return <DataFormContext.Provider value={{ form }}>{children}</DataFormContext.Provider>\n}\n\nfunction DataFormFieldProvider({ children, name }: DataFormFieldProviderProps) {\n  return <DataFormFieldContext.Provider value={{ name }}>{children}</DataFormFieldContext.Provider>\n}\n\nexport {\n    DataFormContainerProvider,\n    useDataFormContainerContext,\n    DataFormProvider,\n    useDataFormContext,\n    DataFormFieldProvider,\n    useDataFormFieldContext,\n    DataFormAction,\n}\nexport type { DataFormContainerAction, FormDataType }\n",
+      "type": "registry:component"
+    }
+  ]
+}

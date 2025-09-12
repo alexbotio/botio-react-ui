@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "inertia-data-deferred",
+  "type": "registry:component",
+  "title": "Inertia Data Deferred",
+  "description": "A simple data deferred component",
+  "dependencies": [
+    "@inertiajs/react"
+  ],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "botio/registry/new-york/inertia/data-deferred.tsx",
+      "content": "import React from \"react\"\nimport { Deferred } from \"@inertiajs/react\"\nimport { Loader2 } from \"lucide-react\"\n\ntype DataDeferredProps = Omit<React.ComponentProps<typeof Deferred>, \"fallback\"> & {\n    fallback?: React.ReactElement<unknown, string | React.JSXElementConstructor<unknown>>\n}\n\nfunction Loading() {\n  return (\n    <div className=\"flex h-full w-full flex-col items-center justify-center gap-2 rounded-md p-4\">\n      <Loader2 className=\"size-8 animate-spin text-primary\" />\n      <p className=\"text-sm\">Cargando datos...</p>\n    </div>\n  )\n}\n\nexport default function DataDeferred({ ...props }: DataDeferredProps) {\n  return <Deferred fallback={props.fallback ?? <Loading />} {...props} />\n}\n",
+      "type": "registry:component"
+    }
+  ]
+}

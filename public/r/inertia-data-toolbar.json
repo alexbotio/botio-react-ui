@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "inertia-data-toolbar",
+  "type": "registry:component",
+  "title": "Inertia Data Toolbar",
+  "description": "A simple data toolbar component",
+  "dependencies": [
+    "@inertiajs/react",
+    "react-use"
+  ],
+  "registryDependencies": [
+    "button",
+    "dropdown-menu",
+    "use-mobile",
+    "@botio/inertia-data-search-input",
+    "@botio/inertia-data-filter-sheet",
+    "@botio/inertia-data-actions"
+  ],
+  "files": [
+    {
+      "path": "botio/registry/new-york/inertia/data-toolbar.tsx",
+      "content": "import { cn } from \"@/lib/utils\"\nimport { DataSearchInput, DataSearchInputProps } from \"./data-search-input\"\nimport { DataFilterSheet, DataFilterFields } from \"./data-filter-sheet\"\nimport { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from \"@/components/ui/dropdown-menu\"\nimport { Button } from \"@/components/ui/button\"\nimport { MoreVertical } from \"lucide-react\"\nimport { useIsMobile } from \"@/hooks/use-mobile\"\nimport { DataRefreshButton } from \"@/components/botio/inertia/data-actions\"\n\ninterface DataToolbarProps {\n    startContent?: React.ReactNode\n    endContent?: React.ReactNode\n    className?: string\n    hideSearch?: boolean\n    hideFilters?: boolean\n    hideRefresh?: boolean\n    filters?: DataFilterFields[]\n    only?: string[]\n}\n\nfunction DataToolbarSearch({ className, ...props }: DataSearchInputProps) {\n    return (\n        <div className={cn(\"w-full flex-1\", className)}>\n            <DataSearchInput {...props} />\n        </div>\n    )\n}\n\nfunction DataToolbar({ startContent, endContent, className, hideSearch = false, hideRefresh = false, hideFilters = false, filters, only }: DataToolbarProps) {\n    const isMobile = useIsMobile()\n\n    if (isMobile) {\n        return (\n            <div className={cn(\"w-full flex items-center justify-between gap-4\", className)}>\n                {startContent}\n                {!hideSearch && <DataToolbarSearch />}\n                {!hideFilters && <DataFilterSheet only={only || []} fields={filters || []} />}\n                <DropdownMenu>\n                    <DropdownMenuTrigger asChild>\n                        <Button variant=\"secondary\" size=\"icon\">\n                            <MoreVertical className=\"size-4\" />\n                        </Button>\n                    </DropdownMenuTrigger>\n                    <DropdownMenuContent align=\"end\">\n                        {!hideRefresh && <DropdownMenuItem asChild><DataRefreshButton isDropdownItem /></DropdownMenuItem>}\n                    </DropdownMenuContent>\n                </DropdownMenu>\n                {endContent}\n            </div>\n        )\n    }\n\n    return (\n        <div className={cn(\"w-full flex items-center justify-between gap-4\", className)}>\n            {startContent}\n            {!hideSearch && <DataToolbarSearch />}\n            {!hideFilters && <DataFilterSheet only={only || []} fields={filters || []} />}\n            {!hideRefresh && <DataRefreshButton />}\n            {endContent}\n        </div>\n    )\n}\n\nexport {\n    DataToolbar,\n    DataToolbarSearch,\n}\n",
+      "type": "registry:component"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "inertia-flash-toast",
+  "type": "registry:component",
+  "title": "Inertia Flash Toast",
+  "description": "A simple flash toast component",
+  "dependencies": [
+    "@inertiajs/react"
+  ],
+  "registryDependencies": [
+    "sonner"
+  ],
+  "files": [
+    {
+      "path": "botio/registry/new-york/inertia/flash-toast.tsx",
+      "content": "import { usePage } from \"@inertiajs/react\"\nimport React from \"react\"\nimport { toast } from \"sonner\"\n\nconst FlashToast = () => {\n  const { flash } = usePage<{ flash: { success: string, error: string } }>().props\n\n  React.useEffect(() => {\n    if (flash?.success) {\n      toast.success(flash.success)\n    }\n    if (flash?.error) {\n      toast.error(flash.error)\n    }\n  }, [flash])\n\n  return null\n}\n\nexport default React.memo(FlashToast)\n",
+      "type": "registry:component"
+    }
+  ]
+}

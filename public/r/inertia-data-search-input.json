@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "inertia-data-search-input",
+  "type": "registry:component",
+  "title": "Inertia Data Search Input",
+  "description": "A simple data search input component",
+  "dependencies": [
+    "@inertiajs/react",
+    "react-use"
+  ],
+  "registryDependencies": [
+    "input",
+    "label",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "botio/registry/new-york/inertia/data-search-input.tsx",
+      "content": "import React from \"react\"\nimport { Input } from \"@/components/ui/input\"\nimport { Loader2, Search, X } from \"lucide-react\"\nimport { Label } from \"@/components/ui/label\"\nimport { useDebounce, useLocation, useSearchParam } from \"react-use\"\nimport { router } from \"@inertiajs/react\"\nimport { Button } from \"@/components/ui/button\"\nimport { cn } from \"@/lib/utils\"\n\ninterface DataSearchInputProps {\n  placeholder?: string | null\n  only?: string[]\n  minLength?: number\n  debounceTime?: number\n  className?: string\n  inputClassName?: string\n  onSearch?: (_value: string | undefined) => void\n  onClear?: () => void\n  disabled?: boolean\n  autoFocus?: boolean\n}\n\nfunction DataSearchInput({\n  placeholder = \"Buscar...\",\n  only = [],\n  minLength = 2,\n  debounceTime = 500,\n  className,\n  inputClassName,\n  onSearch,\n  onClear,\n  disabled = false,\n  autoFocus = false\n}: DataSearchInputProps) {\n  const uid = React.useId()\n  const [isSearching, setIsSearching] = React.useState(false)\n  const search = useSearchParam(\"search\")\n  const [searchValue, setSearchValue] = React.useState(search || undefined)\n  const location = useLocation()\n  const inputRef = React.useRef<HTMLInputElement>(null)\n  const [, cancel] = useDebounce(() => {\n    const currentQuery = new URLSearchParams(location.search)\n    const query = Object.fromEntries(currentQuery.entries())\n    query.search = searchValue || \"\"\n\n    if (!isSearching) {\n      return\n    }\n\n    if (!searchValue) {\n      delete query.search\n    }\n\n    router.get(window.location.pathname as string, query, {\n      preserveState: true,\n      replace: true,\n      only,\n      onFinish: () => {\n        setIsSearching(false)\n        onSearch?.(searchValue)\n      },\n    })\n  }, debounceTime, [searchValue])\n\n  const handleSearch = React.useCallback((value: string) => {\n    setSearchValue(value)\n\n    if (!value || value.length < minLength) {\n      setIsSearching(false)\n      return\n    }\n\n    setIsSearching(true)\n  }, [minLength])\n\n  const handleClear = React.useCallback(() => {\n    setIsSearching(true)\n    setSearchValue(undefined)\n    cancel()\n    onClear?.()\n  }, [cancel, onClear])\n\n  const handleKeyDown = React.useCallback((e: React.KeyboardEvent<HTMLInputElement>) => {\n    if (e.key === \"Escape\" && searchValue) {\n      handleClear()\n    }\n  }, [searchValue, handleClear])\n\n  React.useEffect(() => {\n    if (autoFocus && inputRef.current) {\n      inputRef.current.focus()\n    }\n  }, [autoFocus])\n\n  return (\n    <div className={cn(\"relative\", className)}>\n      <Label\n        htmlFor={uid}\n        className={cn(\n          \"absolute left-2 top-1/2 -translate-y-1/2\",\n          disabled && \"opacity-50\"\n        )}\n      >\n        {isSearching ? (\n          <Loader2 className=\"size-4 animate-spin\" aria-hidden=\"true\" />\n        ) : (\n          <Search className=\"size-4\" aria-hidden=\"true\" />\n        )}\n      </Label>\n      <Input\n        ref={inputRef}\n        id={uid}\n        type=\"text\"\n        placeholder={placeholder || \"\"}\n        className={cn(\n          \"w-full pl-8\",\n          inputClassName\n        )}\n        autoComplete=\"off\"\n        value={searchValue ?? \"\"}\n        onChange={(e) => handleSearch(e.target.value)}\n        onKeyDown={handleKeyDown}\n        disabled={disabled}\n        aria-label={placeholder || \"Campo de búsqueda\"}\n        aria-busy={isSearching}\n      />\n      <div className=\"absolute right-0.5 top-1/2 -translate-y-1/2 flex items-center gap-1\">\n        {searchValue && searchValue.length > 0 && (\n          <Button\n            variant=\"ghost\"\n            size=\"icon\"\n            className=\"size-8\"\n            onClick={handleClear}\n            disabled={disabled}\n            aria-label=\"Limpiar búsqueda\"\n          >\n            <X className=\"size-4\" aria-hidden=\"true\" />\n          </Button>\n        )}\n      </div>\n    </div>\n  )\n}\n\nexport { type DataSearchInputProps, DataSearchInput }\n",
+      "type": "registry:component"
+    }
+  ]
+}

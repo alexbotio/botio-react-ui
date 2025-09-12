@@ -4,6 +4,18 @@
   "homepage": "https://github.com/alexbotio/botio-react-ui",
   "items": [
     {
+      "name": "use-password",
+      "type": "registry:hook",
+      "title": "Use Password",
+      "description": "A simple use password hook",
+      "files": [
+        {
+          "path": "botio/registry/hooks/use-password.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
       "name": "shared-loading-screen",
       "type": "registry:component",
       "title": "Loading Screen",
@@ -14,6 +26,166 @@
       "files": [
         {
           "path": "botio/registry/new-york/shared/loading-screen.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "shared-password-input",
+      "type": "registry:component",
+      "title": "Password Input",
+      "description": "A simple password input component",
+      "registryDependencies": ["button", "input", "@botio/use-password"],
+      "files": [
+        {
+          "path": "botio/registry/new-york/shared/password-input.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "inertia-data-actions",
+      "type": "registry:component",
+      "title": "Inertia Data Actions",
+      "description": "A simple data actions component",
+      "registryDependencies": ["button"],
+      "dependencies": [
+        "@inertiajs/react"
+      ],
+      "files": [
+        {
+          "path": "botio/registry/new-york/inertia/data-actions.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "inertia-data-container",
+      "type": "registry:component",
+      "title": "Inertia Data Container",
+      "description": "A simple data container component",
+      "files": [
+        {
+          "path": "botio/registry/new-york/inertia/data-container.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "inertia-data-deferred",
+      "type": "registry:component",
+      "title": "Inertia Data Deferred",
+      "description": "A simple data deferred component",
+      "registryDependencies": ["button"],
+      "dependencies": [
+        "@inertiajs/react"
+      ],
+      "files": [
+        {
+          "path": "botio/registry/new-york/inertia/data-deferred.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "inertia-data-filter-sheet",
+      "type": "registry:component",
+      "title": "Inertia Data Filter Sheet",
+      "description": "A simple data filter sheet component",
+      "registryDependencies": [
+        "button",
+        "sheet",
+        "use-mobile",
+        "label",
+        "input",
+        "select",
+        "checkbox",
+        "radio-group",
+        "badge"
+      ],
+      "dependencies": [
+        "@inertiajs/react",
+        "react-use"
+      ],
+      "files": [
+        {
+          "path": "botio/registry/new-york/inertia/data-filter-sheet.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "inertia-data-form-context",
+      "type": "registry:component",
+      "title": "Inertia Data Form Context",
+      "description": "A simple data form context component",
+      "dependencies": [
+        "@inertiajs/react"
+      ],
+      "files": [
+        {
+          "path": "botio/registry/new-york/inertia/data-form-context.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "inertia-data-form",
+      "type": "registry:component",
+      "title": "Inertia Data Form",
+      "description": "A simple data form component",
+      "registryDependencies": [
+        "button",
+        "card",
+        "label",
+        "input",
+        "select",
+        "checkbox",
+        "radio-group",
+        "badge",
+        "data-form-context",
+        "@botio/shared-loading-screen"
+      ],
+      "dependencies": [
+        "@inertiajs/react",
+        "react-use"
+      ],
+      "files": [
+        {
+          "path": "botio/registry/new-york/inertia/data-form.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "inertia-data-pagination",
+      "type": "registry:component",
+      "title": "Inertia Data Pagination",
+      "description": "A simple data pagination component",
+      "registryDependencies": ["button", "select"],
+      "dependencies": [
+        "@inertiajs/react"
+      ],
+      "files": [
+        {
+          "path": "botio/registry/new-york/inertia/data-pagination.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "inertia-data-search-input",
+      "type": "registry:component",
+      "title": "Inertia Data Search Input",
+      "description": "A simple data search input component",
+      "dependencies": [
+        "@inertiajs/react",
+        "react-use"
+      ],
+      "registryDependencies": ["input", "label", "button"],
+      "files": [
+        {
+          "path": "botio/registry/new-york/inertia/data-search-input.tsx",
           "type": "registry:component"
         }
       ]
@@ -31,6 +203,62 @@
       "files": [
         {
           "path": "botio/registry/new-york/inertia/data-table-column-header.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "inertia-data-table",
+      "type": "registry:component",
+      "title": "Inertia Data Table",
+      "description": "A simple data table component",
+      "registryDependencies": ["table", "@botio/inertia-data-pagination"],
+      "dependencies": [
+        "@tanstack/react-table"
+      ],
+      "files": [
+        {
+          "path": "botio/registry/new-york/inertia/data-table.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "inertia-data-toolbar",
+      "type": "registry:component",
+      "title": "Inertia Data Toolbar",
+      "description": "A simple data toolbar component",
+      "dependencies": [
+        "@inertiajs/react",
+        "react-use"
+      ],
+      "registryDependencies": [
+        "button",
+        "dropdown-menu",
+        "use-mobile",
+        "@botio/inertia-data-search-input",
+        "@botio/inertia-data-filter-sheet",
+        "@botio/inertia-data-actions"
+      ],
+      "files": [
+        {
+          "path": "botio/registry/new-york/inertia/data-toolbar.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "inertia-flash-toast",
+      "type": "registry:component",
+      "title": "Inertia Flash Toast",
+      "description": "A simple flash toast component",
+      "registryDependencies": ["sonner"],
+      "dependencies": [
+        "@inertiajs/react"
+      ],
+      "files": [
+        {
+          "path": "botio/registry/new-york/inertia/flash-toast.tsx",
           "type": "registry:component"
         }
       ]

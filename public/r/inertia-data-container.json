@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "inertia-data-container",
+  "type": "registry:component",
+  "title": "Inertia Data Container",
+  "description": "A simple data container component",
+  "files": [
+    {
+      "path": "botio/registry/new-york/inertia/data-container.tsx",
+      "content": "import { cn } from \"@/lib/utils\"\n\ninterface DataViewProps {\n    children?: React.ReactNode\n    className?: string\n}\n\nfunction DataContainer({ children, className }: DataViewProps) {\n    return (\n        <div className={cn(\"py-4 px-6 md:px-4 space-y-4\", className)}>\n            {children}\n        </div>\n    )\n}\n\nexport {\n    DataContainer,\n}\n\n",
+      "type": "registry:component"
+    }
+  ]
+}
