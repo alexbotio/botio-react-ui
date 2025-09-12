@@ -44,6 +44,18 @@
       ]
     },
     {
+      "name": "shared-external-link",
+      "type": "registry:component",
+      "title": "External Link",
+      "description": "A simple external link component",
+      "files": [
+        {
+          "path": "botio/registry/new-york/shared/external-link.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "inertia-data-actions",
       "type": "registry:component",
       "title": "Inertia Data Actions",
