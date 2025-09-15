@@ -1,6 +1,7 @@
+import * as React from "react";
 import { cn } from "@/lib/utils";
 
-interface ExternalLinkProps extends React.HTMLAttributes<HTMLAnchorElement> {
+interface ExternalLinkProps extends React.ComponentProps<"a"> {
     className?: string;
 }
 

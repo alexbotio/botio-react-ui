@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "botio/registry/new-york/shared/external-link.tsx",
-      "content": "import { cn } from \"@/lib/utils\";\n\ninterface ExternalLinkProps extends React.HTMLAttributes<HTMLAnchorElement> {\n    className?: string;\n}\n\nexport default function ExternalLink({ children, className, ...props }: ExternalLinkProps) {\n    return (\n        <a\n            {...props}\n            target=\"_blank\"\n            rel=\"noopener noreferrer\"\n            className={cn(\n              'text-foreground underline underline-offset-4 hover:underline-offset-2 transition-all duration-200 ease-out hover:decoration-current! hover:opacity-80',\n              className,\n          )}\n        >\n            {children}\n        </a>\n    )\n}\n",
+      "content": "import * as React from \"react\";\nimport { cn } from \"@/lib/utils\";\n\ninterface ExternalLinkProps extends React.ComponentProps<\"a\"> {\n    className?: string;\n}\n\nexport default function ExternalLink({ children, className, ...props }: ExternalLinkProps) {\n    return (\n        <a\n            {...props}\n            target=\"_blank\"\n            rel=\"noopener noreferrer\"\n            className={cn(\n              'text-foreground underline underline-offset-4 hover:underline-offset-2 transition-all duration-200 ease-out hover:decoration-current! hover:opacity-80',\n              className,\n          )}\n        >\n            {children}\n        </a>\n    )\n}\n",
       "type": "registry:component"
     }
   ]

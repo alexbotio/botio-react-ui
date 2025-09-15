@@ -155,7 +155,7 @@
         "checkbox",
         "radio-group",
         "badge",
-        "data-form-context",
+        "@botio/inertia-data-form-context",
         "@botio/shared-loading-screen"
       ],
       "dependencies": [
